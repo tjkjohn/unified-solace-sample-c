@@ -34,7 +34,7 @@ all: $(INTRO)
 intro: $(INTRO)
 
 clean:
-	 rm -f $(OUTPUTDIR)/*
+	 rm -rf $(OUTPUTDIR)/*
 
 install:
 	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(CCSMPHOME)/bin/$(OS)/$(ARCH)/  	
