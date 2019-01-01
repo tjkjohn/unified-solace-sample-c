@@ -36,6 +36,11 @@ intro: $(INTRO)
 clean:
 	 rm -f $(OUTPUTDIR)/*
 
+install:
+	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(CCSMPHOME)/bin/$(OS)/$(ARCH)/
+	rm $(CCSMPHOME)/bin/$(OS)/$(ARCH)/*.a
+	rm $(CCSMPHOME)/bin/$(OS)/$(ARCH)/*.o
+
 HelloWorldPub : HelloWorldPub.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
 
