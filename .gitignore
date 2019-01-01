@@ -56,11 +56,11 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-*/bin/mac/x64/
-*/bin/linux/x86/
-*/bin/linux/x64/
-*/bin/win/x86/
-*/bin/win/x64/
+bin/mac/x64/
+bin/linux/x86/
+bin/linux/x64/
+bin/win/x86/
+bin/win/x64/
 Debug/
 DebugStatic/
 Release/
