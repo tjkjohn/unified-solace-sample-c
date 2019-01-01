@@ -27,9 +27,11 @@ LINKFLAGS:= $(LIBDIRS) -lsolclient $(LLSYS)
 %.o:	%.c
 	$(CXX) $(COMPILEFLAG)  $(SIXTY_FOUR_COMPAT) -c $< -o $(OUTPUTDIR)/$@
 
-EXECS:= HelloWorldPub HelloWorldSub HelloWorldQueuePub HelloWorldQueueSub HelloWorldWebPub HelloWorldWebSub
+INTRO:= HelloWorldPub HelloWorldSub HelloWorldQueuePub HelloWorldQueueSub HelloWorldWebPub HelloWorldWebSub
 
-all: $(EXECS)
+all: $(INTRO)
+
+intro: $(INTRO)
 
 clean:
 	 rm -f $(OUTPUTDIR)/*
