@@ -107,7 +107,7 @@ main ( int argc, char *argv[] )
     solClient_flow_createFuncInfo_t flowFuncInfo = SOLCLIENT_FLOW_CREATEFUNC_INITIALIZER;
 
     /* Session Properties */
-    const char     *sessionProps[20];
+    const char     *sessionProps[20] = {0, };
     int             propIndex;
 
     /* Flow Properties */
@@ -120,8 +120,8 @@ main ( int argc, char *argv[] )
     /* Queue Network Name to be used with "solClient_session_endpointProvision()" */
     char            qNN[80];
 
-    if ( argc < 5 ) {
-        printf ( "Usage: HelloWorldQueueSub <msg_backbone_ip:port> <vpn> <client-username> <queue>\n" );
+    if ( argc < 6 ) {
+        printf ( "Usage: HelloWorldQueueSub <msg_backbone_ip:port> <vpn> <client-username> <password> <queue>\n" );
         return -1;
     }
 
@@ -164,7 +164,8 @@ main ( int argc, char *argv[] )
     sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_USERNAME;
     sessionProps[propIndex++] = argv[3];
 
-    sessionProps[propIndex++] = NULL;
+    sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_PASSWORD;
+    sessionProps[propIndex++] = argv[4];
 
     /* Create the Session. */
     solClient_session_create ( ( char ** ) sessionProps,
@@ -186,7 +187,7 @@ main ( int argc, char *argv[] )
     provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_QUEUE;
 
     provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_NAME;
-    provProps[provIndex++] = argv[4];
+    provProps[provIndex++] = argv[5];
 
     provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_PERMISSION;
     provProps[provIndex++] = SOLCLIENT_ENDPOINT_PERM_DELETE;
@@ -230,7 +231,7 @@ main ( int argc, char *argv[] )
     flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_ACKMODE_CLIENT;
 
     flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_BIND_NAME;
-    flowProps[propIndex++] = argv[4];
+    flowProps[propIndex++] = argv[5];
 
     flowProps[propIndex++] = NULL;
 

@@ -67,7 +67,7 @@ main ( int argc, char *argv[] )
     solClient_session_createFuncInfo_t sessionFuncInfo = SOLCLIENT_SESSION_CREATEFUNC_INITIALIZER;
 
     /* Session Properties */
-    const char     *sessionProps[20];
+    const char     *sessionProps[20] = {0, };
     int             propIndex = 0;
 
     /* Message */
@@ -75,8 +75,8 @@ main ( int argc, char *argv[] )
     solClient_destination_t destination;
     const char *text_p = "Hello world!";
 
-    if ( argc < 5 ) {
-        printf ( "Usage: HelloWorldPub <msg_backbone_ip:port> <vpn> <client-username> <queue>\n" );
+    if ( argc < 6 ) {
+        printf ( "Usage: HelloWorldQueuePub <msg_backbone_ip:port> <vpn> <client-username> <password> <queue>\n" );
         return -1;
     }
 
@@ -115,7 +115,7 @@ main ( int argc, char *argv[] )
 
     /* Configure the Session properties. */
     propIndex = 0;
-
+ 
     sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_HOST;
     sessionProps[propIndex++] = argv[1];
 
@@ -125,7 +125,8 @@ main ( int argc, char *argv[] )
     sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_USERNAME;
     sessionProps[propIndex++] = argv[3];
 
-    sessionProps[propIndex] = NULL;
+    sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_PASSWORD;
+    sessionProps[propIndex++] = argv[4];
 
     /* Create the Session. */
     solClient_session_create ( ( char ** ) sessionProps,
@@ -148,14 +149,14 @@ main ( int argc, char *argv[] )
 
     /* Set the destination. */
     destination.destType = SOLCLIENT_QUEUE_DESTINATION;
-    destination.dest = argv[4];
+    destination.dest = argv[5];
     solClient_msg_setDestination ( msg_p, &destination, sizeof ( destination ) );
 
     /* Add some content to the message. */
     solClient_msg_setBinaryAttachment ( msg_p, text_p, ( solClient_uint32_t ) strlen ( (char *)text_p ) );
 
     /* Send the message. */
-    printf ( "About to send message '%s' to queue '%s'...\n", (char *)text_p, argv[4] );
+    printf ( "About to send message '%s' to queue '%s'...\n", (char *)text_p, argv[5] );
     solClient_session_sendMsg ( session_p, msg_p );
     printf ( "Message sent.\n" );
 

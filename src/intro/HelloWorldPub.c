@@ -63,7 +63,7 @@ main ( int argc, char *argv[] )
     solClient_session_createFuncInfo_t sessionFuncInfo = SOLCLIENT_SESSION_CREATEFUNC_INITIALIZER;
 
     /* Session Properties */
-    const char     *sessionProps[20];
+    const char     *sessionProps[20] = {0, };
     int             propIndex = 0;
 
     /* Message */
@@ -123,8 +123,6 @@ main ( int argc, char *argv[] )
 
     sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_PASSWORD;
     sessionProps[propIndex++] = argv[4];
-
-	sessionProps[propIndex] = NULL;
 
     /* Create the Session. */
     solClient_session_create ( ( char ** ) sessionProps,

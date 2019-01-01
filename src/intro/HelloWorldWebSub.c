@@ -74,20 +74,20 @@ main ( int argc, char *argv[] )
     solClient_session_createFuncInfo_t sessionFuncInfo = SOLCLIENT_SESSION_CREATEFUNC_INITIALIZER;
 
     /* Session Properties */
-    const char     *sessionProps[20];
+    const char     *sessionProps[20] = {0, };
     int             propIndex = 0;
 
     /* API return code */
     solClient_returnCode_t      rc;
 
-    if ( argc < 5 ) {
-        printf ( "Usage: HelloWorldWebSub <http://msg_backbone_ip[:port]> <vpn> <client-username> <topic> [web-transport-protocol]\n");
+    if ( argc < 6 ) {
+        printf ( "Usage: HelloWorldWebSub <http://msg_backbone_ip[:port]> <vpn> <client-username> <password> <topic> [web-transport-protocol]\n");
         return -1;
     }
 
     if ((strncmp(argv[1], "http", 4) != 0) && (strncmp(argv[1], "ws", 2) != 0)){
         printf ("%s: support HTTP or WS transport protocols only\n", argv[1]);
-        printf ( "\t Usage: HelloWorldWebSub <http://msg_backbone_ip[:port]> <vpn> <client-username> <topic> [web-transport-protocol]\n");
+        printf ( "\t Usage: HelloWorldWebSub <http://msg_backbone_ip[:port]> <vpn> <client-username> <password> <topic> [web-transport-protocol]\n");
         return -1;
     }
 
@@ -133,7 +133,7 @@ main ( int argc, char *argv[] )
 
     /* Configure the Session properties. */
     propIndex = 0;
-
+ 
     sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_HOST;
     sessionProps[propIndex++] = argv[1];
 
@@ -143,12 +143,13 @@ main ( int argc, char *argv[] )
     sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_USERNAME;
     sessionProps[propIndex++] = argv[3];
  
-    if (argc > 5) {
-        sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_WEB_TRANSPORT_PROTOCOL_LIST;
-        sessionProps[propIndex++] = argv[5];
-    }
+   sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_PASSWORD;
+    sessionProps[propIndex++] = argv[4];
 
-    sessionProps[propIndex] = NULL;
+    if (argc > 6) {
+        sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_WEB_TRANSPORT_PROTOCOL_LIST;
+        sessionProps[propIndex++] = argv[6];
+    }
 
     /* Create the Session. */
     rc = solClient_session_create ( ( char ** ) sessionProps,
@@ -175,7 +176,7 @@ main ( int argc, char *argv[] )
 
     rc = solClient_session_topicSubscribeExt ( session_p,
                                           SOLCLIENT_SUBSCRIBE_FLAGS_WAITFORCONFIRM,
-                                          argv[4] );
+                                          argv[5] );
 
     if (rc != SOLCLIENT_OK) {
         printf ( "solClient_session_topicSubscribeExt: returnCode  %d (expect %d)\n", rc,  SOLCLIENT_OK);
@@ -200,7 +201,7 @@ main ( int argc, char *argv[] )
 
     rc = solClient_session_topicUnsubscribeExt ( session_p,
                                             SOLCLIENT_SUBSCRIBE_FLAGS_WAITFORCONFIRM,
-                                            argv[4] );
+                                            argv[5] );
     if (rc != SOLCLIENT_OK) {
         printf ( "solClient_session_topicUnsubscribeExt: returnCode  %d (expect %d)\n", rc,  SOLCLIENT_OK);
         return -1;
