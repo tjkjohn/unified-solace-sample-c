@@ -38,6 +38,7 @@ clean:
 	 rm -rf $(OUTPUTDIR)/*
 
 install:
+	cp setenv.sh $(OUTPUTDIR)
 	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(OUTPUTDIR)/
 	rm $(CCSMPHOME)/bin/$(OS)/$(ARCH)/*.a
 	rm $(CCSMPHOME)/bin/$(OS)/$(ARCH)/*.o
