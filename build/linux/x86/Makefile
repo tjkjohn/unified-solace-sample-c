@@ -19,7 +19,7 @@ LINUXLIBDIR=$(CCSMPHOME)/lib/$(OS)/$(ARCH)
 LIBDIRS:=-L$(CCSMPHOME)/lib -L$(LINUXLIBDIR)
 LLSYS:=$(SIXTY_FOUR_COMPAT)
 VPATH:=$(CCSMPHOME)/src/intro
-OUTPUTDIR:=$(CCSMPHOME)/bin/$(OS)/$(ARCH)
+OUTPUTDIR:=$(CCSMPHOME)/bin/intro/$(OS)/$(ARCH)
 COMPILEFLAG:= $(COMPILEFLAG) $(INCDIRS) $(ARCHFLAGS) -DPROVIDE_LOG_UTILITIES -g
 LINKFLAGS:= $(LIBDIRS) -lsolclient $(LLSYS)
 
@@ -40,8 +40,8 @@ clean:
 install:
 	cp setenv.sh $(OUTPUTDIR)
 	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(OUTPUTDIR)/
-	rm $(CCSMPHOME)/bin/$(OS)/$(ARCH)/*.a
-	rm $(CCSMPHOME)/bin/$(OS)/$(ARCH)/*.o
+	rm $(OUTPUTDIR)/*.a
+	rm $(OUTPUTDIR)/*.o
 
 HelloWorldPub : HelloWorldPub.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
