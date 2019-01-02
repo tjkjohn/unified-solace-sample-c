@@ -5,7 +5,7 @@ endif
 CXX:=gcc -g
 
 ifeq ($(CCSMPHOME),)
-	CCSMPHOME:=../../..
+	CCSMPHOME:=../../../..
 endif
 
 INCDIRS:=-I$(CCSMPHOME) \
@@ -13,7 +13,7 @@ INCDIRS:=-I$(CCSMPHOME) \
 	 -I.
 
 SIXTY_FOUR_COMPAT:=
-OS:=mac
+OS:=linux
 ARCH:=x64
 LINUXLIBDIR=$(CCSMPHOME)/lib/$(OS)/$(ARCH)
 LIBDIRS:=-L$(CCSMPHOME)/lib -L$(LINUXLIBDIR)
@@ -38,9 +38,10 @@ clean:
 	 rm -rf $(OUTPUTDIR)/*
 
 install:
-	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(OUTPUTDIR)/  	
-	rm $(OUTPUTDIR)/*.a  
-	rm $(OUTPUTDIR)/*.o  
+	cp setenv.sh $(OUTPUTDIR)
+	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(OUTPUTDIR)/
+	rm $(OUTPUTDIR)/*.a
+	rm $(OUTPUTDIR)/*.o
 
 HelloWorldPub : HelloWorldPub.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)

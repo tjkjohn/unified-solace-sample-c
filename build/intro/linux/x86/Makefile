@@ -5,7 +5,7 @@ endif
 CXX:=gcc -g -m32
 
 ifeq ($(CCSMPHOME),)
-	CCSMPHOME:=../../..
+	CCSMPHOME:=../../../..
 endif
 
 INCDIRS:=-I$(CCSMPHOME) \
