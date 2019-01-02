@@ -8,7 +8,7 @@ ifeq ($(CCSMPHOME),)
 	CCSMPHOME:=../../..
 endif
 
-INCDIRS:=-I${CCSMPHOME} \
+INCDIRS:=-I$(CCSMPHOME) \
 	 -I$(CCSMPHOME)/inc \
 	 -I.
 
@@ -20,9 +20,10 @@ LIBDIRS:=-L$(CCSMPHOME)/lib -L$(LINUXLIBDIR)
 LLSYS:=$(SIXTY_FOUR_COMPAT)
 VPATH:=$(CCSMPHOME)/src/intro
 OUTPUTDIR:=$(CCSMPHOME)/bin/$(OS)/$(ARCH)
-
 COMPILEFLAG:= $(COMPILEFLAG) $(INCDIRS) $(ARCHFLAGS) -DPROVIDE_LOG_UTILITIES -g
 LINKFLAGS:= $(LIBDIRS) -lsolclient $(LLSYS)
+
+$(shell mkdir -p $(OUTPUTDIR))
 
 %.o:	%.c
 	$(CXX) $(COMPILEFLAG)  $(SIXTY_FOUR_COMPAT) -c $< -o $(OUTPUTDIR)/$@
@@ -37,7 +38,7 @@ clean:
 	 rm -rf $(OUTPUTDIR)/*
 
 install:
-	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(CCSMPHOME)/bin/$(OS)/$(ARCH)/
+	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(OUTPUTDIR)/
 	rm $(CCSMPHOME)/bin/$(OS)/$(ARCH)/*.a
 	rm $(CCSMPHOME)/bin/$(OS)/$(ARCH)/*.o
 
