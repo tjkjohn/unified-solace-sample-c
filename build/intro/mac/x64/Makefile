@@ -28,11 +28,9 @@ $(shell mkdir -p $(OUTPUTDIR))
 %.o:	%.c
 	$(CXX) $(COMPILEFLAG)  $(SIXTY_FOUR_COMPAT) -c $< -o $(OUTPUTDIR)/$@
 
-INTRO:= HelloWorldPub HelloWorldSub HelloWorldQueuePub HelloWorldQueueSub HelloWorldWebPub HelloWorldWebSub
+EXECS:= HelloWorldPub HelloWorldSub HelloWorldQueuePub HelloWorldQueueSub HelloWorldWebPub HelloWorldWebSub
 
-all: $(INTRO)
-
-intro: $(INTRO)
+all: $(EXECS)
 
 clean:
 	 rm -rf $(OUTPUTDIR)/*
