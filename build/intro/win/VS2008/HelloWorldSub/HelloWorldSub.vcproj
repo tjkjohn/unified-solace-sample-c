@@ -93,8 +93,8 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin\intro\win\x86"
-				CommandLine="mkdir $(SolclientBasePath)bin\intro\win\x86&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin\intro\win\x86"
+				Description="copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin"
 			/>
 		</Configuration>
 		<Configuration
@@ -172,8 +172,8 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin\intro\win\x64"
-				CommandLine="mkdir $(SolclientBasePath)bin\intro\win\x64&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin\intro\win\x64"
+				Description="copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin"
 			/>
 		</Configuration>
 		<Configuration
@@ -252,8 +252,8 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin\intro\win\x86"
-				CommandLine="mkdir $(SolclientBasePath)bin\intro\win\x86&#x0D;&#x0A;copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin\intro\win\x86"
+				Description="copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin"
 			/>
 		</Configuration>
 		<Configuration
@@ -333,8 +333,8 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin\intro\win\x64"
-				CommandLine="mkdir $(SolclientBasePath)bin\intro\win\x64&#x0D;&#x0A;copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin\intro\win\x64"
+				Description="copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin"
 			/>
 		</Configuration>
 		<Configuration
@@ -414,8 +414,8 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin\intro\win\x86"
-				CommandLine="mkdir $(SolclientBasePath)bin\intro\win\x86&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin\intro\win\x86"
+				Description="copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin"
 			/>
 		</Configuration>
 		<Configuration
@@ -496,8 +496,8 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin\intro\win\x64"
-				CommandLine="mkdir $(SolclientBasePath)bin\intro\win\x64&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin\intro\win\x64"
+				Description="copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin"
 			/>
 		</Configuration>
 		<Configuration
@@ -577,8 +577,8 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin\intro\win\x86"
-				CommandLine="mkdir $(SolclientBasePath)bin\intro\win\x86&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin\intro\win\x86"
+				Description="copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin"
 			/>
 		</Configuration>
 		<Configuration
@@ -659,8 +659,8 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description="copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin\intro\win\x64"
-				CommandLine="mkdir $(SolclientBasePath)bin\intro\win\x64&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin\intro\win\x64"
+				Description="copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin"
 			/>
 		</Configuration>
 	</Configurations>
