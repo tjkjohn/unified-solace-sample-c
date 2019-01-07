@@ -141,12 +141,10 @@ main ( int argc, char *argv[] )
     sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_PASSWORD;
     sessionProps[propIndex++] = argv[4];
 
-    if (argc > 5) {
+    if (argc > 6) {
         sessionProps[propIndex++] = SOLCLIENT_SESSION_PROP_WEB_TRANSPORT_PROTOCOL_LIST;
         sessionProps[propIndex++] = argv[6];
     }
-
-    sessionProps[propIndex] = NULL;
 
     /* Create the Session. */
     rc = solClient_session_create ( ( char ** ) sessionProps,
