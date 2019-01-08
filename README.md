@@ -25,21 +25,22 @@ On Windows
 
 To check out the project and build it, do the following:
 
-  1. clone this GitHub repository
+  1. `git clone` this GitHub repository
   2. `cd solace-samples-c`
  
 ### Build the Samples
 
-`cd build`  
-On Linux:  
+1. `cd build`  
+
+2. On Linux:  
 ```
     build$ ./build_intro_linux_xxx.sh
 ```
-On Mac:
+3. On Mac:
 ```
     build$ ./build_intro_mac_xxx.sh
 ```
-On Windows, you can either build the source code from Visual Studio IDE or from DOS command prompt.   
+4. On Windows, you can either build the source code from Visual Studio IDE or from DOS command prompt.   
 To build from the IDE, you will need to go to `build\intro\win\VS2008` and double-click on `intro.sln`.  
 To build from DOS prompt, you must launch the appropriate Visual Studio Command Prompt and then run the `build_intro_win_xxx.bat`
 
@@ -47,15 +48,15 @@ To build from DOS prompt, you must launch the appropriate Visual Studio Command 
 
 To try individual samples, build the project from source and then run samples like the following:
 
-`cd ../bin`
+1. `cd ../bin`
 
-On Linux:
+2. On Linux:
 ```
-bin$ . ./setenv.sh
-bin$ ./HelloWorldPub
+    bin$ . ./setenv.sh
+    bin$ ./HelloWorldPub
 ```
 
-On Mac and Windows, you can run the sample app straight-away.  
+3. On Mac and Windows, you can run the sample app straight-away.  
 
 See the [tutorials](https://dev.solace.com/samples/solace-samples-c/) for more details.
 
