@@ -1,4 +1,4 @@
-/** @example ex/Intro/HelloWorldPub.c
+/** @example ex/Intro/TopicPublisher.c
  */
 /*
  *  Copyright 2012-2018 Solace Corporation. All rights reserved.
@@ -13,7 +13,7 @@
  *  source is authorized unless specifically stated in the
  *  contracts referred to above.
  *
- *  HelloWorldPub
+ *  TopicPublisher
  *
  *  This sample shows the basics of creating session, connecting a session,
  *  and publishing a direct message to a topic. This is meant to be a very
@@ -72,7 +72,7 @@ main ( int argc, char *argv[] )
     const char *text_p = "Hello world!";
 
     if ( argc < 6 ) {
-        printf ( "Usage: HelloWorldPub <msg_backbone_ip:port> <vpn> <client-username> <password> <topic>\n" );
+        printf ( "Usage: TopicPublisher <msg_backbone_ip:port> <vpn> <client-username> <password> <topic>\n" );
         return -1;
     }
 
@@ -82,7 +82,7 @@ main ( int argc, char *argv[] )
 
     /* solClient needs to be initialized before any other API calls. */
     solClient_initialize ( SOLCLIENT_LOG_DEFAULT_FILTER, NULL );
-    printf ( "HelloWorldPub initializing...\n" );
+    printf ( "TopicPublisher initializing...\n" );
 
     /*************************************************************************
      * Create a Context

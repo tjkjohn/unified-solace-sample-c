@@ -1,4 +1,4 @@
-/** @example ex/Intro/HelloWorldSub.c
+/** @example ex/Intro/TopicSubscriber.c
  */
 /*
  *  Copyright 2012-2018 Solace Corporation. All rights reserved.
@@ -13,7 +13,7 @@
  *  source is authorized unless specifically stated in the
  *  contracts referred to above.
  *
- *  HelloWorldSub
+ *  TopicSubscriber
  *
  *  This sample shows the basics of creating session, connecting a session,
  *  and receiving a direct message from a topic. This is meant to be a very
@@ -78,7 +78,7 @@ main ( int argc, char *argv[] )
     int             propIndex = 0;
 
     if ( argc < 6 ) {
-        printf ( "Usage: HelloWorldSub <msg_backbone_ip:port> <vpn> <client-username> <password> <topic>\n" );
+        printf ( "Usage: TopicSubscriber <msg_backbone_ip:port> <vpn> <client-username> <password> <topic>\n" );
         return -1;
     }
 
@@ -88,7 +88,7 @@ main ( int argc, char *argv[] )
 
     /* solClient needs to be initialized before any other API calls. */
     solClient_initialize ( SOLCLIENT_LOG_DEFAULT_FILTER, NULL );
-    printf ( "HelloWorldSub initializing...\n" );
+    printf ( "TopicSubscriber initializing...\n" );
 
     /*************************************************************************
      * Create a Context

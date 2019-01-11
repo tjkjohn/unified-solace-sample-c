@@ -1,4 +1,4 @@
-/** @exampe ex/Intro/HelloWorldQueuePub.c
+/** @example ex/Intro/QueuePublisher.c
  */
 
 /*
@@ -14,7 +14,7 @@
  *  source is authorized unless specifically stated in the
  *  contracts referred to above.
  *
- *  HelloWorldQueuePub
+ *  QueuePublisher
  *
  *  This sample shows the basics of creating session, connecting a session,
  *  and publishing a guaranteed message to a queue, and how message
@@ -76,7 +76,7 @@ main ( int argc, char *argv[] )
     const char *text_p = "Hello world!";
 
     if ( argc < 6 ) {
-        printf ( "Usage: HelloWorldQueuePub <msg_backbone_ip:port> <vpn> <client-username> <password> <queue>\n" );
+        printf ( "Usage: QueuePublisher <msg_backbone_ip:port> <vpn> <client-username> <password> <queue>\n" );
         return -1;
     }
 
@@ -86,7 +86,7 @@ main ( int argc, char *argv[] )
 
     /* solClient needs to be initialized before any other API calls. */
     solClient_initialize ( SOLCLIENT_LOG_DEFAULT_FILTER, NULL );
-    printf ( "HelloWorldQueuePub initializing...\n" );
+    printf ( "QueuePublisher initializing...\n" );
 
     /*************************************************************************
      * Create a Context

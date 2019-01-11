@@ -1,4 +1,4 @@
-/** @exampe ex/Intro/HelloWorldQueueSub.c
+/** @example ex/Intro/QueueSubscriber.c
  */
 
 /*
@@ -14,7 +14,7 @@
  *  source is authorized unless specifically stated in the
  *  contracts referred to above.
  *
- *  HelloWorldQueueSub
+ *  QueueSubscriber
  *
  *  This sample shows the basics of creating session, connecting a session,
  *  and receiving a guaranteed message from a queue. This is meant to be a very
@@ -121,7 +121,7 @@ main ( int argc, char *argv[] )
     char            qNN[80];
 
     if ( argc < 6 ) {
-        printf ( "Usage: HelloWorldQueueSub <msg_backbone_ip:port> <vpn> <client-username> <password> <queue>\n" );
+        printf ( "Usage: QueueSubscriber <msg_backbone_ip:port> <vpn> <client-username> <password> <queue>\n" );
         return -1;
     }
 
