@@ -28,6 +28,9 @@ struct option
 #define required_argument 1
 #define optional_argument 2
 
+#ifdef WIN32
+int getopt(int, char**, char*);
+#endif
 int getopt_long(int, char**, char*, struct option*, int*);
 
 #ifdef __cplusplus

@@ -26,6 +26,8 @@ extern          "C"
 #include <winbase.h>
 
 #define SLEEP(sec)  Sleep ( (sec) * 1000 )
+#define strcasecmp (_stricmp)
+#define strncasecmp (_strnicmp)
 #else
 #include <unistd.h>
 

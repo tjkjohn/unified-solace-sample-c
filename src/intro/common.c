@@ -139,9 +139,8 @@ common_parseCommandOptions ( int argc, char **argv, struct commonOptions *common
     int             c;
     int             rc = 1;
     char           *end_p;
-    char           **argVOS;
 
-    while ( ( c = getopt_long ( argc, argVOS, optstring, longopts, NULL ) ) != -1 ) {
+    while ( ( c = getopt_long ( argc, argv, optstring, longopts, NULL ) ) != -1 ) {
         switch ( c ) {
             case 'a':
                 strncpy ( commonOpt->cacheName, optarg, sizeof ( commonOpt->cacheName ) );
@@ -237,11 +236,11 @@ common_parseCommandOptions ( int argc, char **argv, struct commonOptions *common
     if (rc == 0) {
         if (positionalDesc == NULL) {
             printf ("\nUsage: %s PARAMETERS [OPTIONS]\n\n",
-                argVOS[0]
+                argv[0]
                );
         } else {
             printf ("\nUsage: %s PARAMETERS [OPTIONS] [ARGUMENTS]\n\n",
-                argVOS[0]
+                argv[0]
                );
         }
         printf (
