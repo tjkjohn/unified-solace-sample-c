@@ -28,7 +28,7 @@ $(shell mkdir -p $(OUTPUTDIR))
 %.o:	%.c
 	$(CXX) $(COMPILEFLAG)  $(SIXTY_FOUR_COMPAT) -c $< -o $(OUTPUTDIR)/$@
 
-EXECS:= HelloWorldPub HelloWorldSub HelloWorldQueuePub HelloWorldQueueSub HelloWorldWebPub HelloWorldWebSub
+EXECS:= TopicPublisher TopicSubscriber QueuePublisher QueueSubscriber RRDirectReplier RRDirectRequester TopicToQueueMapping
 
 all: $(EXECS)
 
@@ -36,24 +36,27 @@ clean:
 	 rm -rf $(OUTPUTDIR)/*
 
 install:
-	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(OUTPUTDIR)/  	
-	rm $(OUTPUTDIR)/*.a  
-	rm $(OUTPUTDIR)/*.o  
+	cp $(CCSMPHOME)/lib/$(OS)/$(ARCH)/*.* $(OUTPUTDIR)/
+	rm $(OUTPUTDIR)/*.a
+	rm $(OUTPUTDIR)/*.o
 
-HelloWorldPub : HelloWorldPub.o $(DEPENDS)
+TopicPublisher : TopicPublisher.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
 
-HelloWorldSub : HelloWorldSub.o $(DEPENDS)
+TopicSubscriber : TopicSubscriber.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
 
-HelloWorldQueuePub : HelloWorldQueuePub.o $(DEPENDS)
+QueuePublisher : QueuePublisher.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
 
-HelloWorldQueueSub : HelloWorldQueueSub.o $(DEPENDS)
+QueueSubscriber : QueueSubscriber.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
 
-HelloWorldWebPub : HelloWorldWebPub.o $(DEPENDS)
-	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
+RRDirectReplier : common.o RRDirectReplier.o $(DEPENDS)
+	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/common.o $(OUTPUTDIR)/RRDirectReplier.o $(LINKFLAGS)
 
-HelloWorldWebSub : HelloWorldWebSub.o $(DEPENDS)
-	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
+RRDirectRequester : common.o RRDirectRequester.o $(DEPENDS)
+	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/common.o $(OUTPUTDIR)/RRDirectRequester.o $(LINKFLAGS)
+
+TopicToQueueMapping : common.o TopicToQueueMapping.o $(DEPENDS)
+	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/common.o $(OUTPUTDIR)/TopicToQueueMapping.o $(LINKFLAGS)

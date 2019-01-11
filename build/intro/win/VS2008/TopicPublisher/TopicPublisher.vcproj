@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="HelloWorldQueuePub"
-	ProjectGUID="{CB37D327-956D-48EE-B70C-A6210A339846}"
-	RootNamespace="HelloWorldQueuePub"
+	Name="TopicPublisher"
+	ProjectGUID="{80D9006D-3D89-4A02-8242-AFEB84266228}"
+	RootNamespace="TopicPublisher"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -673,7 +673,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\..\..\..\src\intro\HelloWorldQueuePub.c"
+				RelativePath="..\..\..\..\..\src\intro\TopicPublisher.c"
 				>
 			</File>
 		</Filter>

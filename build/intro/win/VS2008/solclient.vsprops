@@ -10,6 +10,6 @@
 	/>
 	<UserMacro
 		Name="SolclientPreprocessor"
-		Value="SOLCLIENT_CONST_PROPERTIES"
+		Value="_CRT_SECURE_NO_WARNINGS;SOLCLIENT_CONST_PROPERTIES;PROVIDE_LOG_UTILITIES"
 	/>
 </VisualStudioPropertySheet>

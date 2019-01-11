@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="HelloWorldWebSub"
-	ProjectGUID="{F2683C41-74AD-4F76-A0B0-1F991CD35AAB}"
-	RootNamespace="HelloWorldWebSub"
+	Name="QueuePublisher"
+	ProjectGUID="{CB37D327-956D-48EE-B70C-A6210A339846}"
+	RootNamespace="QueuePublisher"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -673,7 +673,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\..\..\..\src\intro\HelloWorldWebSub.c"
+				RelativePath="..\..\..\..\..\src\intro\QueuePublisher.c"
 				>
 			</File>
 		</Filter>

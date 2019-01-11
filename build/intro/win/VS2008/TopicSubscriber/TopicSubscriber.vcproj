@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="HelloWorldQueueSub"
-	ProjectGUID="{96EA5F1A-316D-47F2-AD84-68D1276ADF79}"
-	RootNamespace="HelloWorldQueueSub"
+	Name="TopicSubscriber"
+	ProjectGUID="{34E11228-3688-493C-8E88-C65C4B54AB83}"
+	RootNamespace="TopicSubscriber"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -94,7 +94,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin"
-				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -173,7 +173,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin"
-				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_d.exe $(SolclientBasePath)bin&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -253,7 +253,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin"
-				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -334,7 +334,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin"
-				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName).exe $(SolclientBasePath)bin&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -415,7 +415,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin"
-				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -497,7 +497,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin"
-				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_sd.exe $(SolclientBasePath)bin&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -578,7 +578,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin"
-				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -660,7 +660,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				Description="copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin"
-				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin"
+				CommandLine="mkdir $(SolclientBasePath)bin&#x0D;&#x0A;copy $(OutDir)\$(ProjectName)_s.exe $(SolclientBasePath)bin&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
@@ -673,7 +673,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\..\..\..\src\intro\HelloWorldQueueSub.c"
+				RelativePath="..\..\..\..\..\src\intro\TopicSubscriber.c"
 				>
 			</File>
 		</Filter>

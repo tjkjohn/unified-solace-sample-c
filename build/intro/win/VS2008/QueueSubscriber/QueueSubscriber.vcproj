@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="HelloWorldSub"
-	ProjectGUID="{34E11228-3688-493C-8E88-C65C4B54AB83}"
-	RootNamespace="HelloWorldSub"
+	Name="QueueSubscriber"
+	ProjectGUID="{96EA5F1A-316D-47F2-AD84-68D1276ADF79}"
+	RootNamespace="QueueSubscriber"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -673,7 +673,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\..\..\..\src\intro\HelloWorldSub.c"
+				RelativePath="..\..\..\..\..\src\intro\QueueSubscriber.c"
 				>
 			</File>
 		</Filter>

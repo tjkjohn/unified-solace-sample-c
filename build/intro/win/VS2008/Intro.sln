@@ -1,17 +1,21 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorldPub", "HelloWorldPub\HelloWorldPub.vcproj", "{80D9006D-3D89-4A02-8242-AFEB84266228}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopicPublisher", "TopicPublisher\TopicPublisher.vcproj", "{80D9006D-3D89-4A02-8242-AFEB84266228}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorldSub", "HelloWorldSub\HelloWorldSub.vcproj", "{34E11228-3688-493C-8E88-C65C4B54AB83}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopicSubscriber", "TopicSubscriber\TopicSubscriber.vcproj", "{34E11228-3688-493C-8E88-C65C4B54AB83}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorldQueuePub", "HelloWorldQueuePub\HelloWorldQueuePub.vcproj", "{CB37D327-956D-48EE-B70C-A6210A339846}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QueuePublisher", "QueuePublisher\QueuePublisher.vcproj", "{CB37D327-956D-48EE-B70C-A6210A339846}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorldQueueSub", "HelloWorldQueueSub\HelloWorldQueueSub.vcproj", "{96EA5F1A-316D-47F2-AD84-68D1276ADF79}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QueueSubscriber", "QueueSubscriber\QueueSubscriber.vcproj", "{96EA5F1A-316D-47F2-AD84-68D1276ADF79}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorldWebPub", "HelloWorldWebPub\HelloWorldWebPub.vcproj", "{FFA7EBE5-1B3F-43C8-BB12-88AC58257DB9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RRDirectReplier", "RRDirectReplier\RRDirectReplier.vcproj", "{FFA7EBE5-1B3F-43C8-BB12-88AC58257DB9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorldWebSub", "HelloWorldWebSub\HelloWorldWebSub.vcproj", "{F2683C41-74AD-4F76-A0B0-1F991CD35AAB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RRDirectRequester", "RRDirectRequester\RRDirectRequester.vcproj", "{F2683C41-74AD-4F76-A0B0-1F991CD35AAB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopicToQueueMapping", "TopicToQueueMapping\TopicToQueueMapping.vcproj", "{4E649416-9131-4b90-9A91-7B8C837561B7}"
+EndProject
+
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -120,6 +124,22 @@ Global
 		{F2683C41-74AD-4F76-A0B0-1F991CD35AAB}.ReleaseStatic|Win32.Build.0 = ReleaseStatic|Win32
 		{F2683C41-74AD-4F76-A0B0-1F991CD35AAB}.ReleaseStatic|x64.ActiveCfg = ReleaseStatic|x64
 		{F2683C41-74AD-4F76-A0B0-1F991CD35AAB}.ReleaseStatic|x64.Build.0 = ReleaseStatic|x64
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.Debug|Win32.Build.0 = Debug|Win32
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.Debug|x64.ActiveCfg = Debug|x64
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.Debug|x64.Build.0 = Debug|x64
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.DebugStatic|Win32.ActiveCfg = DebugStatic|Win32
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.DebugStatic|Win32.Build.0 = DebugStatic|Win32
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.DebugStatic|x64.ActiveCfg = DebugStatic|x64
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.DebugStatic|x64.Build.0 = DebugStatic|x64
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.Release|Win32.ActiveCfg = Release|Win32
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.Release|Win32.Build.0 = Release|Win32
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.Release|x64.ActiveCfg = Release|x64
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.Release|x64.Build.0 = Release|x64
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.ReleaseStatic|Win32.ActiveCfg = ReleaseStatic|Win32
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.ReleaseStatic|Win32.Build.0 = ReleaseStatic|Win32
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.ReleaseStatic|x64.ActiveCfg = ReleaseStatic|x64
+		{4E649416-9131-4b90-9A91-7B8C837561B7}.ReleaseStatic|x64.Build.0 = ReleaseStatic|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
