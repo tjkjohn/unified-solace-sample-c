@@ -53,7 +53,7 @@ To try individual samples, build the project from source and then run samples li
 2. On Linux:
 ```
     bin$ . ./setenv.sh
-    bin$ ./HelloWorldPub
+    bin$ ./TopicPublisher
 ```
 
 3. On Mac and Windows, you can run the sample app straight-away.  
