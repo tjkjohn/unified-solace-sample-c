@@ -152,7 +152,7 @@ main ( int argc, char *argv[] )
     solClient_msg_setBinaryAttachment ( msg_p, text_p, ( solClient_uint32_t ) strlen ( (char *)text_p ) );
 
     /* Send the message. */
-    printf ( "About to send message '%s' to topic '%s'...\n", (char *)text_p, argv[4] );
+    printf ( "About to send message '%s' to topic '%s'...\n", (char *)text_p, argv[5] );
     solClient_session_sendMsg ( session_p, msg_p );
 
     /* Free the message. */
