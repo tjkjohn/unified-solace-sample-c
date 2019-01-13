@@ -111,10 +111,10 @@ main ( int argc, char *argv[] )
     int             propIndex;
 
     /* Flow Properties */
-    const char     *flowProps[20];
+    const char     *flowProps[20] = {0, };
 
     /* Provision Properties */
-    const char     *provProps[20];
+    const char     *provProps[20] = {0, };
     int             provIndex;
 
     /* Queue Network Name to be used with "solClient_session_endpointProvision()" */
@@ -195,8 +195,6 @@ main ( int argc, char *argv[] )
     provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_QUOTA_MB;
     provProps[provIndex++] = "100";
 
-    provProps[provIndex++] = NULL;
-
     /* Check if the endpoint provisioning is support */
     if ( !solClient_session_isCapable ( session_p, SOLCLIENT_SESSION_CAPABILITY_ENDPOINT_MANAGEMENT ) ) {
 
@@ -207,14 +205,15 @@ main ( int argc, char *argv[] )
     /* Try to provision the Queue. Ignore if already exists */
     solClient_session_endpointProvision ( ( char ** ) provProps,
                                           session_p,
-                                          SOLCLIENT_PROVISION_FLAGS_WAITFORCONFIRM,
+                                          SOLCLIENT_PROVISION_FLAGS_WAITFORCONFIRM|
+                                          SOLCLIENT_PROVISION_FLAGS_IGNORE_EXIST_ERRORS,
                                           NULL, qNN, sizeof ( qNN ) );
 
     /*************************************************************************
      * Create a Flow
      *************************************************************************/
 
-    /* Congigure the Flow function information */
+    /* Configure the Flow function information */
     flowFuncInfo.rxMsgInfo.callback_p = flowMessageReceiveCallback;
     flowFuncInfo.eventInfo.callback_p = flowEventCallback;
 
@@ -232,8 +231,6 @@ main ( int argc, char *argv[] )
 
     flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_BIND_NAME;
     flowProps[propIndex++] = argv[5];
-
-    flowProps[propIndex++] = NULL;
 
     solClient_session_createFlow ( ( char ** ) flowProps,
                                    session_p,
