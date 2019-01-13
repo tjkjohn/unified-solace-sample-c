@@ -161,12 +161,12 @@ This tutorial is uses "Direct" messages which are at most once delivery messages
 
 ![]({{ site.baseurl }}/assets/images/pub-sub-receiving-message-300x134.png)
 
-With a session connected in the previous step, then you must subscribe to a topic in order to express interest in receiving messages. This tutorial uses the topics "tutorial/topic".
+With a session connected in the previous step, then you must subscribe to a topic in order to express interest in receiving messages. This tutorial uses the topics "topic/topic1".
 
 ```cpp
 solClient_session_topicSubscribeExt ( session_p,
                                     SOLCLIENT_SUBSCRIBE_FLAGS_WAITFORCONFIRM,
-                                      "tutorial/topic");
+                                      "topic/topic1");
 ```
 
 Then after the subscription is added, the consumer is started. At this point the consumer is ready to receive messages. So wait in a loop for the expected message to arrive.
@@ -233,17 +233,32 @@ The full source code for this example is available in [GitHub]({{ site.repositor
 
 The OS source code simply provides platform abstraction. The subscriber sample makes use of this for the sleep in the main loop.
 
-### Building
+## Building
 
-Building these examples is simple. All you need is to execute the compile script in the bin folder. 
+Building these examples is simple. 
 
+#### For linux and mac
+All you need is to execute the compile script in the `build` folder. 
+
+linux
 ```
 build$ ./build_intro_linux_xxx.sh
+```
+mac
+```
+build$ ./build_intro_mac_xxx.sh
+```
+
+#### For windows
+You can either build the examples from DOS prompt or from Visual Studio IDE.  
+To build from DOS prompt, you must first launch the appropriate Visual Studio Command Prompt and then run the batch file
+```
+c:\solace-sample-c\build>build_intro_win_xxx.bat
 ```
 
 Referencing the downloaded SolClient library include and lib file is required. For more advanced build control, consider adapting the makefile found in the "Intro" directory of the SolClient package. The above samples very closely mirror the samples found there.
 
-If you start the TopicSubscriber with the required arguments of your Solace messaging, it will connect and wait for a message.
+If you start the `TopicSubscriber` with the required arguments of your Solace messaging, it will connect and wait for a message.
 
 ```
 bin$. ./setenv.sh 
@@ -253,7 +268,7 @@ Connected.
 Waiting for message......
 ```
 
-Then you can send a message using the TopicPublisher with the same arguments. If successful, the output for the producer will look like the following:
+Then you can send a message using the `TopicPublisher` with the same arguments. If successful, the output for the producer will look like the following:
 
 ```
 bin$ ./TopicPublisher <msg_backbone_ip:port> <message-vpn> <client-username> <password> <topic>
@@ -277,6 +292,7 @@ Exiting.
 
 The received message is printed to the screen. The message contents was "Hello world!" as expected and shown in the contents of the message dump along with additional information about the Solace message that was received.
 
+You have now successfully connected a client, subscribed to a topic and exchanged messages using this topic.
+
 If you have any issues sending and receiving a message, check the [Solace community]({{ site.links-community }}){:target="_top"} for answers to common issues seen.
 
-You have now successfully connected a client, subscribed to a topic and exchanged messages using this topic.
