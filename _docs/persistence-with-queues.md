@@ -162,22 +162,12 @@ You must start your flow so it can begin receiving messages.
 
 ```cpp
 
-/*****************************************************************************
- * sessionEventCallback
- *
- * The event callback function is mandatory for session creation.
- *****************************************************************************/
 void
 sessionEventCallback ( solClient_opaqueSession_pt opaqueSession_p,
                 solClient_session_eventCallbackInfo_pt eventInfo_p, void *user_p )
 {
 }
 
-/*****************************************************************************
- * flowEventCallback
- *
- * The event callback function is mandatory for flow creation.
- *****************************************************************************/
 static void
 flowEventCallback ( solClient_opaqueFlow_pt opaqueFlow_p, solClient_flow_eventCallbackInfo_pt eventInfo_p, void *user_p )
 {
@@ -233,28 +223,9 @@ Combining the example source code shown above results in the following source co
 
 ## Building
 
-Building these examples is simple. 
+{% include_relative assets/init.md %}
 
-#### For linux and mac
-All you need is to execute the compile script in the `build` folder. 
-
-linux
-```
-build$ ./build_intro_linux_xxx.sh
-```
-mac
-```
-build$ ./build_intro_mac_xxx.sh
-```
-
-#### For windows
-You can either build the examples from DOS prompt or from Visual Studio IDE.  
-To build from DOS prompt, you must first launch the appropriate Visual Studio Command Prompt and then run the batch file
-```
-c:\solace-sample-c\build>build_intro_win_xxx.bat
-```
-
-Referencing the downloaded SolClient library include and lib file is required. For more advanced build control, consider adapting the makefile found in the "Intro" directory of the SolClient package. The above samples very closely mirror the samples found there.
+### Running the Samples
 
 If you start the `QueuePublisher` with the required arguments of your Solace messaging, if will publish the message to the specified queue. In the example below, a message is published to a queue `q1`
 ```
