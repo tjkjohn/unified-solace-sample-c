@@ -54,7 +54,7 @@ sendRequests ( solClient_opaqueSession_pt opaqueSession_p, const char *destinati
         return;
     }
     /* Note: A bad operation is purposely sent in this example (lastOperation + 1). */
-    for ( operation = firstOperation; operation <= lastOperation + 1; operation++ ) {
+    for ( operation = firstOperation; operation <= lastOperation; operation++ ) {
         if ( operation <= lastOperation ) {
             printf ( "Sending request for %d %s %d\n", operand1, RR_operationToString ( operation ), operand2 );
         } else {
