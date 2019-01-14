@@ -29,13 +29,13 @@
 static int msgCount = 0;
 
 /*****************************************************************************
- * messageReceiveCallback
+ * sessionMessageReceiveCallback
  *
  * The message callback is invoked for each Direct message received by
  * the Session. In this sample, the message is printed to the screen.
  *****************************************************************************/
 solClient_rxMsgCallback_returnCode_t
-messageReceiveCallback ( solClient_opaqueSession_pt opaqueSession_p, solClient_opaqueMsg_pt msg_p, void *user_p )
+sessionMessageReceiveCallback ( solClient_opaqueSession_pt opaqueSession_p, solClient_opaqueMsg_pt msg_p, void *user_p )
 {
     printf ( "Received message:\n" );
     solClient_msg_dump ( msg_p, NULL, 0 );
@@ -47,12 +47,12 @@ messageReceiveCallback ( solClient_opaqueSession_pt opaqueSession_p, solClient_o
 }
 
 /*****************************************************************************
- * eventCallback
+ * sessionEventCallback
  *
  * The event callback function is mandatory for session creation.
  *****************************************************************************/
 void
-eventCallback ( solClient_opaqueSession_pt opaqueSession_p,
+sessionEventCallback ( solClient_opaqueSession_pt opaqueSession_p,
                 solClient_session_eventCallbackInfo_pt eventInfo_p, void *user_p )
 {
 }
@@ -107,9 +107,9 @@ main ( int argc, char *argv[] )
      *************************************************************************/
 
     /* Configure the Session function information. */
-    sessionFuncInfo.rxMsgInfo.callback_p = messageReceiveCallback;
+    sessionFuncInfo.rxMsgInfo.callback_p = sessionMessageReceiveCallback;
     sessionFuncInfo.rxMsgInfo.user_p = NULL;
-    sessionFuncInfo.eventInfo.callback_p = eventCallback;
+    sessionFuncInfo.eventInfo.callback_p = sessionEventCallback;
     sessionFuncInfo.eventInfo.user_p = NULL;
 
     /* Configure the Session properties. */
