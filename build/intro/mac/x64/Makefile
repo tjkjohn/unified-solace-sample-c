@@ -28,7 +28,7 @@ $(shell mkdir -p $(OUTPUTDIR))
 %.o:	%.c
 	$(CXX) $(COMPILEFLAG)  $(SIXTY_FOUR_COMPAT) -c $< -o $(OUTPUTDIR)/$@
 
-EXECS:= TopicPublisher TopicSubscriber QueuePublisher QueueSubscriber RRDirectReplier RRDirectRequester TopicToQueueMapping
+EXECS:= TopicPublisher TopicSubscriber QueuePublisher QueueSubscriber BasicReplier BasicRequester TopicToQueueMapping
 
 all: $(EXECS)
 
@@ -52,11 +52,11 @@ QueuePublisher : QueuePublisher.o $(DEPENDS)
 QueueSubscriber : QueueSubscriber.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/$^ $(LINKFLAGS)
 
-RRDirectReplier : common.o RRDirectReplier.o $(DEPENDS)
-	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/common.o $(OUTPUTDIR)/RRDirectReplier.o $(LINKFLAGS)
+BasicReplier : common.o BasicReplier.o $(DEPENDS)
+	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/common.o $(OUTPUTDIR)/BasicReplier.o $(LINKFLAGS)
 
-RRDirectRequester : common.o RRDirectRequester.o $(DEPENDS)
-	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/common.o $(OUTPUTDIR)/RRDirectRequester.o $(LINKFLAGS)
+BasicRequester : common.o BasicRequester.o $(DEPENDS)
+	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/common.o $(OUTPUTDIR)/BasicRequester.o $(LINKFLAGS)
 
 TopicToQueueMapping : common.o TopicToQueueMapping.o $(DEPENDS)
 	$(CXX) -o $(OUTPUTDIR)/$@ $(OUTPUTDIR)/common.o $(OUTPUTDIR)/TopicToQueueMapping.o $(LINKFLAGS)

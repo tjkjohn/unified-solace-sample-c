@@ -1,19 +1,19 @@
-/** @example Intro/RRDirectReplier.c
+/** @example Intro/BasicReplier.c
  */
 
 /*
  * This sample shows how to implement a Requester for direct Request-Reply messaging, where 
  *
- *    RRDirectRequester: A message Endpoint that sends a request message and waits to receive a
+ *    BasicRequester: A message Endpoint that sends a request message and waits to receive a
  *                       reply message as a response.
- *    RRDirectReplier:   A message Endpoint that waits to receive a request message and responses
+ *    BasicReplier:   A message Endpoint that waits to receive a request message and responses
  *                       to it by sending a reply message.
  *  
- *  |-------------------|  ---RequestTopic --> |------------------|
- *  | RRDirectRequester |                      | RRDirectReplier  |
- *  |-------------------|  <--ReplyToTopic---- |------------------|
+ *  |----------------|  ---RequestTopic --> |---------------|
+ *  | BasicRequester |                      | BasicReplier  |
+ *  |----------------|  <--ReplyToTopic---- |---------------|
  *
- * Copyright 2013-2018 Solace Corporation. All rights reserved.
+ * Copyright 2013-2019 Solace Corporation. All rights reserved.
  *
  */
 #include "os.h"
@@ -154,7 +154,7 @@ main ( int argc, char *argv[] )
     const char     *sessionProps[50] = {0, };
     int             propIndex = 0;
 
-    printf ( "\nRRDirectReplier.c (Copyright 2013-2018 Solace Corporation. All rights reserved.)\n" );
+    printf ( "\nBasicReplier.c (Copyright 2013-2019 Solace Corporation. All rights reserved.)\n" );
 
     /*************************************************************************
      * Parse command options

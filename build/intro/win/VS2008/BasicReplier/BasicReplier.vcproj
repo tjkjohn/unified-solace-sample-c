@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="RRDirectReplier"
+	Name="BasicReplier"
 	ProjectGUID="{FFA7EBE5-1B3F-43C8-BB12-88AC58257DB9}"
-	RootNamespace="RRDirectReplier"
+	RootNamespace="BasicReplier"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -681,7 +681,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\..\src\intro\RRDirectReplier.c"
+				RelativePath="..\..\..\..\..\src\intro\BasicReplier.c"
 				>
 			</File>
 		</Filter>

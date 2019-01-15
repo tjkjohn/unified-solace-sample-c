@@ -4,10 +4,10 @@ title: Request/Reply
 summary: Learn how to set up request/reply messaging.
 icon: I_dev_R+R.svg
 links:
-    - label: RRDirectRequestor.c
-      link: /blob/master/src/intro/RRDirectRequestor.c
-    - label: RRDirectReplier.c
-      link: /blob/master/src/intro/RRDirectReplier.c
+    - label: BasicRequestor.c
+      link: /blob/master/src/intro/BasicRequestor.c
+    - label: BasicReplier.c
+      link: /blob/master/src/intro/BasicReplier.c
 ---
 
 
@@ -163,11 +163,11 @@ The full source code for this example is available in [GitHub]({{ site.repositor
 
 ### Running the Samples
 
-First start the `RRDirectReplier` so that it is up and listening for requests. Then you can use the `RRDirectRequestor` sample to send requests and receive replies. Pass your Solace messaging router connection properties as parameters.
+First start the `BasicReplier` so that it is up and listening for requests. Then you can use the `BasicRequestor` sample to send requests and receive replies. Pass your Solace messaging router connection properties as parameters.
 
 ```
 bin$ . ./setenv.sh
-bin$ ./RRDirectReplier -u <client-username>@<message-vpn> -c <protocol>://<msg_backbone_ip>:<port> -p <password> -t <topic>
+bin$ ./BasicReplier -u <client-username>@<message-vpn> -c <protocol>://<msg_backbone_ip>:<port> -p <password> -t <topic>
 Sending request for 9 PLUS 5
 Received reply message, result = 14.000000
 Sending request for 9 MINUS 5
@@ -176,12 +176,10 @@ Sending request for 9 TIMES 5
 Received reply message, result = 45.000000
 Sending request for 9 DIVIDED_BY 5
 Received reply message, result = 1.800000
-Sending request for a bad operation '9 UNKNOWN 5', expect an APP error
-Received reply message, result = 1.800000
 ```
 
 ```
-bin$ ./RRDirectRequester -u <client-username>@<message-vpn> -c <protocol>://<msg_backbone_ip>:<port> -p <password> -t <topic>
+bin$ ./BasicRequester -u <client-username>@<message-vpn> -c <protocol>://<msg_backbone_ip>:<port> -p <password> -t <topic>
 Sending request for 9 PLUS 5
 Received reply message, result = 14.000000
 Sending request for 9 MINUS 5
