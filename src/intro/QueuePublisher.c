@@ -32,7 +32,7 @@
  * The message receive callback function is mandatory for session creation.
  *****************************************************************************/
 solClient_rxMsgCallback_returnCode_t
-messageReceiveCallback ( solClient_opaqueSession_pt opaqueSession_p, solClient_opaqueMsg_pt msg_p, void *user_p )
+sessionMessageReceiveCallback ( solClient_opaqueSession_pt opaqueSession_p, solClient_opaqueMsg_pt msg_p, void *user_p )
 {
     return SOLCLIENT_CALLBACK_OK;
 }
@@ -43,11 +43,31 @@ messageReceiveCallback ( solClient_opaqueSession_pt opaqueSession_p, solClient_o
  * The event callback function is mandatory for session creation.
  *****************************************************************************/
 void
-eventCallback ( solClient_opaqueSession_pt opaqueSession_p,
+sessionEventCallback ( solClient_opaqueSession_pt opaqueSession_p,
                 solClient_session_eventCallbackInfo_pt eventInfo_p, void *user_p )
 {
     if ( ( eventInfo_p->sessionEvent ) == SOLCLIENT_SESSION_EVENT_ACKNOWLEDGEMENT )
         printf ( "Acknowledgement received!\n" );
+}
+
+/*****************************************************************************
+ * flowEventCallback
+ *
+ * The event callback function is mandatory for flow creation.
+ *****************************************************************************/
+static void
+flowEventCallback ( solClient_opaqueFlow_pt opaqueFlow_p, solClient_flow_eventCallbackInfo_pt eventInfo_p, void *user_p )
+{
+}
+
+/*****************************************************************************
+ * flowMessageReceiveCallback
+ *
+ * The message receive callback is mandatory for session creation.
+ *****************************************************************************/
+static          solClient_rxMsgCallback_returnCode_t
+flowMessageReceiveCallback ( solClient_opaqueFlow_pt opaqueFlow_p, solClient_opaqueMsg_pt msg_p, void *user_p )
+{
 }
 
 /*****************************************************************************
@@ -66,9 +86,23 @@ main ( int argc, char *argv[] )
     solClient_opaqueSession_pt session_p;
     solClient_session_createFuncInfo_t sessionFuncInfo = SOLCLIENT_SESSION_CREATEFUNC_INITIALIZER;
 
+    /* Flow */
+    solClient_opaqueFlow_pt flow_p;
+    solClient_flow_createFuncInfo_t flowFuncInfo = SOLCLIENT_FLOW_CREATEFUNC_INITIALIZER;
+
     /* Session Properties */
     const char     *sessionProps[20] = {0, };
     int             propIndex = 0;
+
+    /* Flow Properties */
+    const char     *flowProps[20] = {0, };
+
+    /* Provision Properties */
+    const char     *provProps[20] = {0, };
+    int             provIndex;
+
+    /* Queue Network Name to be used with "solClient_session_endpointProvision()" */
+    char            qNN[80];
 
     /* Message */
     solClient_opaqueMsg_pt msg_p = NULL;
@@ -108,9 +142,9 @@ main ( int argc, char *argv[] )
      * Message receive callback function and the Session event function
      * are both mandatory. In this sample, default functions are used.
      */
-    sessionFuncInfo.rxMsgInfo.callback_p = messageReceiveCallback;
+    sessionFuncInfo.rxMsgInfo.callback_p = sessionMessageReceiveCallback;
     sessionFuncInfo.rxMsgInfo.user_p = NULL;
-    sessionFuncInfo.eventInfo.callback_p = eventCallback;
+    sessionFuncInfo.eventInfo.callback_p = sessionEventCallback;
     sessionFuncInfo.eventInfo.user_p = NULL;
 
     /* Configure the Session properties. */
@@ -136,6 +170,67 @@ main ( int argc, char *argv[] )
     /* Connect the Session. */
     solClient_session_connect ( session_p );
     printf ( "Connected.\n" );
+
+    /*************************************************************************
+     * Provision a Queue
+     *************************************************************************/
+
+    /* Configure the Provision properties */
+    provIndex = 0;
+
+    provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_ID;
+    provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_QUEUE;
+
+    provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_NAME;
+    provProps[provIndex++] = argv[5];
+
+    provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_PERMISSION;
+    provProps[provIndex++] = SOLCLIENT_ENDPOINT_PERM_DELETE;
+
+    provProps[provIndex++] = SOLCLIENT_ENDPOINT_PROP_QUOTA_MB;
+    provProps[provIndex++] = "100";
+
+    /* Check if the endpoint provisioning is support */
+    if ( !solClient_session_isCapable ( session_p, SOLCLIENT_SESSION_CAPABILITY_ENDPOINT_MANAGEMENT ) ) {
+
+        printf ( "Endpoint management not supported on this appliance.\n" );
+        return -1;
+    }
+
+    /* Try to provision the Queue. Ignore if already exists */
+    solClient_session_endpointProvision ( ( char ** ) provProps,
+                                          session_p,
+                                          SOLCLIENT_PROVISION_FLAGS_WAITFORCONFIRM|
+                                          SOLCLIENT_PROVISION_FLAGS_IGNORE_EXIST_ERRORS,
+                                          NULL, qNN, sizeof ( qNN ) );
+
+    /*************************************************************************
+     * Create a Flow
+     *************************************************************************/
+
+    /* Configure the Flow function information */
+    flowFuncInfo.rxMsgInfo.callback_p = flowMessageReceiveCallback;
+    flowFuncInfo.eventInfo.callback_p = flowEventCallback;
+
+    /* Configure the Flow properties */
+    propIndex = 0;
+
+    flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_BIND_BLOCKING;
+    flowProps[propIndex++] = SOLCLIENT_PROP_DISABLE_VAL;
+
+    flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_BIND_ENTITY_ID;
+    flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_BIND_ENTITY_QUEUE;
+
+    flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_ACKMODE;
+    flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_ACKMODE_CLIENT;
+
+    flowProps[propIndex++] = SOLCLIENT_FLOW_PROP_BIND_NAME;
+    flowProps[propIndex++] = argv[5];
+
+    solClient_session_createFlow ( ( char ** ) flowProps,
+                                   session_p,
+                                   &flow_p, &flowFuncInfo, sizeof ( flowFuncInfo ) );
+
 
     /*************************************************************************
      * Publish
