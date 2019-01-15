@@ -5,7 +5,7 @@
  *
  * file RRcommon.h Include file for the Solace C API samples.
  *
- * Copyright 2013-2018 Solace Corporation. All rights reserved.
+ * Copyright 2013-2019 Solace Corporation. All rights reserved.
  *
  * This include file provides common utilities used throughout the Request-Reply
  * samples.

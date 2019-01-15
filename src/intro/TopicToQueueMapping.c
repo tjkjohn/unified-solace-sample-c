@@ -18,7 +18,7 @@
  * - publish message to my/sample/topic/1 and verify receipt
  * - publish message to my/sample/topic/2 and verify receipt
  *
- * Copyright 2010-2018 Solace Corporation. All rights reserved.
+ * Copyright 2010-2019 Solace Corporation. All rights reserved.
  */
 
 
@@ -80,7 +80,7 @@ main ( int argc, char *argv[] )
         COMMON_MY_SAMPLE_TOPIC "/2"
     };
 
-    printf ( "\ntopicToQueueMapping.c (Copyright 2010-2018 Solace Corporation. All rights reserved.)\n" );
+    printf ( "\ntopicToQueueMapping.c (Copyright 2010-2019 Solace Corporation. All rights reserved.)\n" );
 
     /*************************************************************************
      * Parse command options

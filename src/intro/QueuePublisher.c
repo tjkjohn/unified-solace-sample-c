@@ -2,7 +2,7 @@
  */
 
 /*
- *  Copyright 2012-2018 Solace Corporation. All rights reserved.
+ *  Copyright 2012-2019 Solace Corporation. All rights reserved.
  *
  *  http://www.solace.com
  *
