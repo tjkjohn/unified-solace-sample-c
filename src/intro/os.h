@@ -4,7 +4,7 @@
 
 /* 
  * OS-specific methods for abstracting.  
- * Copyright 2008-2018 Solace Corporation. All rights reserved. 
+ * Copyright 2008-2019 Solace Corporation. All rights reserved. 
  */
 
 #ifndef ___OS_H_

@@ -7,7 +7,7 @@
  * 
  * Common functions and utilities used by sample code.
  *
- * Copyright 2007-2018 Solace Corporation. All rights reserved.
+ * Copyright 2007-2019 Solace Corporation. All rights reserved.
  *
  */
 
