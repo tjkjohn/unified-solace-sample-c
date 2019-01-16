@@ -125,7 +125,7 @@ The OS source code simply provides platform abstraction. The subscriber sample m
 If you start the `TopicSubscriber` with the required arguments of your Solace messaging, it will connect and wait for a message.
 
 ```
-bin$. ./setenv.sh 
+bin$ . ./setenv.sh 
 bin$ ./TopicSubscriber <msg_backbone_ip:port> <message-vpn> <client-username> <password> <topic>
 TopicSubscriber initializing...
 Connected. 

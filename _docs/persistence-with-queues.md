@@ -102,7 +102,6 @@ Provisioning the queue involves three steps.
                                           NULL, qNN, sizeof ( qNN ) );
 ```
 
-
 ## Sending a message to a queue
 
 Now it is time to send a message to the queue.
@@ -239,7 +238,7 @@ Acknowledgement received!
 Exiting.
 ```
 
-You can next run the `QueueSubscriber` with the same queue `q1` and if the message has been successfully delivered and queued, the queued message will be consumed and printed out.
+You can next start the `QueueSubscriber` with the same queue `q1` and if the message has been successfully delivered and queued, the queued message will be consumed and printed out.
 
 ```
 bin$ ./QueueSubscriber <msg_backbone_ip:port> <message-vpn> <client-username> <password> <queue>

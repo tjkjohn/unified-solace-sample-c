@@ -104,7 +104,7 @@ Just as with previous tutorials, you still need to connect a session and subscri
 
 ```cpp
 
-static          solClient_rxMsgCallback_returnCode_t;
+static solClient_rxMsgCallback_returnCode_t;
 requestMsgReceiveCallback ( solClient_opaqueSession_pt opaqueSession_p, solClient_opaqueMsg_pt msg_p, void *user_p )
 {
     solClient_returnCode_t rc = SOLCLIENT_OK;
@@ -187,7 +187,8 @@ Received reply message, result = 4.000000
 Sending request for 9 TIMES 5
 Received reply message, result = 45.000000
 Sending request for 9 DIVIDED_BY 5
-Received reply message, result = 1.800000```
+Received reply message, result = 1.800000
+```
 
 With that you now know how to successfully implement the request-reply message exchange pattern using Direct messages.
 
