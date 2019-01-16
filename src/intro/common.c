@@ -416,16 +416,9 @@ common_createQueue ( solClient_opaqueSession_pt session_p, const char *queueName
     props[propIndex++] = queueName_p;
     props[propIndex++] = SOLCLIENT_ENDPOINT_PROP_PERMISSION;
     props[propIndex++] = SOLCLIENT_ENDPOINT_PERM_DELETE;
+    props[propIndex++] = SOLCLIENT_ENDPOINT_PROP_QUOTA_MB;
+    props[propIndex++] = "100";
 
-    /*************************************************************************
-     * If this is not the Dead Message Queue, set the Respects TTL property to
-     * TRUE.
-     *************************************************************************/
-    if ( strcmp ( queueName_p, COMMON_DMQ_NAME ) != 0 ) {
-        props[propIndex++] = SOLCLIENT_ENDPOINT_PROP_RESPECTS_MSG_TTL;
-        props[propIndex++] = SOLCLIENT_PROP_ENABLE_VAL;
-    }
-    props[propIndex] = NULL;
 
     if ( ( rc = solClient_session_endpointProvision ( (char**) props, session_p, ( SOLCLIENT_PROVISION_FLAGS_WAITFORCONFIRM | SOLCLIENT_PROVISION_FLAGS_IGNORE_EXIST_ERRORS ), NULL, /* correlationTag pointer */
                                                       NULL,     /* don't need to know endpoint name */
