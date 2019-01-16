@@ -466,6 +466,7 @@ common_publishMessage ( solClient_opaqueSession_pt session_p, char *topic_p, sol
     solClient_returnCode_t rcFreeMsg = SOLCLIENT_OK;
     solClient_opaqueMsg_pt msg_p = NULL;
     solClient_destination_t destination;
+    const char *text_p = COMMON_ATTACHMENT_TEXT;
 
 
     solClient_log ( SOLCLIENT_LOG_DEBUG, "common_publishMessage() called.\n" );
@@ -479,6 +480,12 @@ common_publishMessage ( solClient_opaqueSession_pt session_p, char *topic_p, sol
     /* Set the message delivery mode. */
     if ( ( rc = solClient_msg_setDeliveryMode ( msg_p, deliveryMode ) ) != SOLCLIENT_OK ) {
         common_handleError ( rc, "solClient_msg_setDeliveryMode()" );
+        goto freeMessage;
+    }
+
+    /* attach a payload */
+    if ( ( rc = solClient_msg_setBinaryAttachment ( msg_p, text_p, ( solClient_uint32_t ) strlen ( (char *)text_p ) ) ) != SOLCLIENT_OK ) {
+        common_handleError ( rc, "solClient_msg_setBinaryAttachment()" );
         goto freeMessage;
     }
 
