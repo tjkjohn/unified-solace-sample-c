@@ -68,6 +68,7 @@ flowEventCallback ( solClient_opaqueFlow_pt opaqueFlow_p, solClient_flow_eventCa
 static          solClient_rxMsgCallback_returnCode_t
 flowMessageReceiveCallback ( solClient_opaqueFlow_pt opaqueFlow_p, solClient_opaqueMsg_pt msg_p, void *user_p )
 {
+    return SOLCLIENT_CALLBACK_OK;
 }
 
 /*****************************************************************************
